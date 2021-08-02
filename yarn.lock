@@ -7703,10 +7703,10 @@ ts-jest@^27.0.4:
     semver "7.x"
     yargs-parser "20.x"
 
-ts-patch@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/ts-patch/-/ts-patch-1.4.1.tgz#f892db5adfbf5f6cbe6b1a707e2e1e56abfb9486"
-  integrity sha512-wvD5TotCq1k+OSvbvuqB4TuGKsvSsxPoWWjLxrEbe40SPMar5t+UF0HrF7GkfIAqtfvxitjUEOwP2Mjw1/tr4g==
+ts-patch@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/ts-patch/-/ts-patch-1.4.2.tgz#2b763dc1de5a24631062844735ca169821c2c604"
+  integrity sha512-Nj3mjvQM3t8cB4wGfLKeE8zBT+cx1mDjttOcx9nb2fEl6Q/5u79w19tQniv2eLmeYEbki/+wdQc0zszPEpOxOg==
   dependencies:
     chalk "^4.1.0"
     global-prefix "^3.0.0"
