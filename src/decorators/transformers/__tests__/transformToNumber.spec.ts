@@ -14,4 +14,21 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { plainToClass } from "class-transformer";
+
+import { TransformToNumber } from "~/src";
+
+class User {
+  @TransformToNumber()
+  public readonly age!: number;
+}
+
+describe("decorators/transformers/TransformToNumber", () => {
+  it("must transform to number", () => {
+    const user = {
+      age: "21",
+    };
+
+    expect(plainToClass(User, user).age).toStrictEqual(21);
+  });
+});

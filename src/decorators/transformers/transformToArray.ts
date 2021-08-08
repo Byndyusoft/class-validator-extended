@@ -14,18 +14,10 @@
  * limitations under the License.
  */
 
-import { HelloWorldService } from "~/src";
+import { Transform } from "class-transformer";
 
-describe("HelloWorldService", () => {
-  let helloWorldService: HelloWorldService;
-
-  beforeEach(() => {
-    helloWorldService = new HelloWorldService();
-  });
-
-  it("must return hello world message", () => {
-    expect(helloWorldService.getHelloWorldMessage()).toEqualCaseInsensitive(
-      "hello world!",
-    );
-  });
-});
+export function TransformToArray(): PropertyDecorator {
+  return Transform(({ value }) =>
+    Array.isArray(value) ? (value as unknown[]) : [value],
+  );
+}

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`decorators/validators/AtLeastOneDefined must forbid empty user 1`] = `
+Array [
+  ValidationError {
+    "children": Array [],
+    "constraints": Object {
+      "atLeastOneDefined": "at least one property in User must be defined",
+    },
+    "property": "_atLeastOneDefined",
+    "target": User {},
+    "value": undefined,
+  },
+]
+`;
+
+exports[`decorators/validators/AtLeastOneDefined must forbid user if some properties not defined 1`] = `
+Array [
+  ValidationError {
+    "children": Array [],
+    "constraints": Object {
+      "atLeastOneDefined": "at least one property in User of 'email', 'name' must be defined",
+    },
+    "property": "_atLeastOneDefined",
+    "target": User {},
+    "value": undefined,
+  },
+]
+`;

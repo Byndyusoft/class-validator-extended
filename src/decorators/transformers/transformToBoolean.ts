@@ -14,4 +14,9 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { Transform } from "class-transformer";
+import yn from "yn";
+
+export function TransformToBoolean(): PropertyDecorator {
+  return Transform(({ value }) => yn(value));
+}
