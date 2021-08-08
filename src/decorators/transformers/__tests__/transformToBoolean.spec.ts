@@ -14,4 +14,21 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { plainToClass } from "class-transformer";
+
+import { TransformToBoolean } from "~/src";
+
+class User {
+  @TransformToBoolean()
+  public readonly emailValid!: boolean;
+}
+
+describe("decorators/transformers/TransformToBoolean", () => {
+  it("must transform to boolean", () => {
+    const user = {
+      emailValid: "false",
+    };
+
+    expect(plainToClass(User, user).emailValid).toStrictEqual(false);
+  });
+});

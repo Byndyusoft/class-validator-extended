@@ -14,4 +14,26 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { IsString, validate } from "class-validator";
+
+import { IsNullable } from "~/src";
+
+class User {
+  @IsString()
+  @IsNullable()
+  public readonly patronymic!: string | null;
+
+  public constructor(patronymic: string | null) {
+    this.patronymic = patronymic;
+  }
+}
+
+describe("decorators/validators/IsNullable", () => {
+  it("must allow nullable value", async () => {
+    const user = new User(null);
+
+    const validationErrors = await validate(user);
+
+    expect(validationErrors).toHaveLength(0);
+  });
+});

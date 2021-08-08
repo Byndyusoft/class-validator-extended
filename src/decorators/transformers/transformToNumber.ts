@@ -14,4 +14,8 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { Type } from "class-transformer";
+
+export function TransformToNumber(): PropertyDecorator {
+  return Type(() => Number);
+}

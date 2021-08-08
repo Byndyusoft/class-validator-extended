@@ -14,4 +14,21 @@
  * limitations under the License.
  */
 
-export * from "./decorators";
+import { plainToClass } from "class-transformer";
+
+import { TransformToDate } from "~/src";
+
+class User {
+  @TransformToDate()
+  public readonly birthday!: Date;
+}
+
+describe("decorators/transformers/TransformToDate", () => {
+  it("must transform to date", () => {
+    const user = {
+      birthday: new Date(0).toISOString(),
+    };
+
+    expect(plainToClass(User, user).birthday).toStrictEqual(new Date(0));
+  });
+});

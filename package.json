@@ -1,14 +1,14 @@
 {
-  "name": "@byndyusoft/typescript-template",
+  "name": "@byndyusoft/class-validator-extended",
   "version": "0.0.0-development",
-  "description": "Base template for TypeScript packages",
-  "homepage": "https://github.com/Byndyusoft/node-typescript-template#readme",
+  "description": "Additional decorators for class-validator and class-transformer",
+  "homepage": "https://github.com/Byndyusoft/class-validator-extended#readme",
   "bugs": {
-    "url": "https://github.com/Byndyusoft/node-typescript-template/issues"
+    "url": "https://github.com/Byndyusoft/class-validator-extended/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Byndyusoft/node-typescript-template.git"
+    "url": "https://github.com/Byndyusoft/class-validator-extended.git"
   },
   "license": "Apache-2.0",
   "author": "Byndyusoft",
@@ -65,6 +65,9 @@
       "<rootDir>/src",
       "<rootDir>/test"
     ],
+    "setupFiles": [
+      "reflect-metadata"
+    ],
     "setupFilesAfterEnv": [
       "jest-extended"
     ],
@@ -75,30 +78,41 @@
     }
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "lodash": "^4.17.21",
+    "tslib": "^2.3.1",
+    "yn": "^4.0.0"
   },
   "devDependencies": {
-    "@byndyusoft/eslint-config": "^1.0.0",
-    "@byndyusoft/tsconfig": "^1.0.0",
+    "@byndyusoft/eslint-config": "^1.1.0",
+    "@byndyusoft/tsconfig": "^1.1.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.7",
-    "eslint": "^7.31.0",
-    "husky": "^7.0.1",
-    "jest": "^27.0.6",
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.9.1",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "eslint": "^7.32.0",
+    "husky": "^7.0.2",
+    "jest": "^27.1.1",
     "jest-extended": "^0.11.5",
-    "lint-staged": "^11.1.1",
+    "lint-staged": "^11.1.2",
     "markdownlint-cli": "^0.28.1",
     "pinst": "^2.1.6",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "prettier-plugin-packagejson": "^2.2.11",
-    "semantic-release": "^17.4.4",
+    "reflect-metadata": "^0.1.13",
+    "semantic-release": "^17.4.7",
     "shx": "^0.3.3",
-    "ts-jest": "^27.0.4",
-    "ts-patch": "^1.4.1",
-    "typescript": "^4.3.5",
-    "typescript-transform-paths": "^3.1.0"
+    "ts-jest": "^27.0.5",
+    "ts-patch": "^1.4.4",
+    "typescript": "^4.4.3",
+    "typescript-transform-paths": "^3.3.1"
+  },
+  "peerDependencies": {
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "reflect-metadata": "^0.1.13"
   },
   "engines": {
     "node": ">=12"

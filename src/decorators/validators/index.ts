@@ -14,8 +14,5 @@
  * limitations under the License.
  */
 
-export class HelloWorldService {
-  public getHelloWorldMessage(): string {
-    return "Hello World!";
-  }
-}
+export * from "./atLeastOneDefined";
+export * from "./isNullable";
