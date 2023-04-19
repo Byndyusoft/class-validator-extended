@@ -83,6 +83,11 @@ describe("decorators/validators/LessThanOrEqualTo", () => {
         height: "100.1",
         width: "100.1",
       },
+      {
+        description: "for wrong types",
+        height: "abc",
+        width: "00ff",
+      },
     ];
 
     it.each(cases)(
