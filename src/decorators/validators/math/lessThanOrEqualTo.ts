@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { buildMessage, ValidateBy, ValidationOptions } from "class-validator";
+import {
+  buildMessage,
+  ValidateBy,
+  ValidationArguments,
+  ValidationOptions,
+} from "class-validator";
 import { Decimal } from "decimal.js";
 
 const lessThanOrEqualTo = (
@@ -37,8 +42,8 @@ export function LessThanOrEqualTo(
       name: "lessThanOrEqualTo",
       constraints: [maxValue],
       validator: {
-        validate: (value, args): boolean =>
-          lessThanOrEqualTo(value, args?.constraints[0]),
+        validate: (value, args: ValidationArguments): boolean =>
+          lessThanOrEqualTo(value, args.constraints[0]),
         defaultMessage: buildMessage(
           (eachPrefix) =>
             `${eachPrefix}$property must be less or equal than $constraint1`,

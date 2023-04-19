@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { buildMessage, ValidateBy, ValidationOptions } from "class-validator";
+import {
+  buildMessage,
+  ValidateBy,
+  ValidationArguments,
+  ValidationOptions,
+} from "class-validator";
 import { Decimal } from "decimal.js";
 
 const greaterThan = (value: unknown, minValue: number | string): boolean => {
@@ -34,8 +39,8 @@ export function GreaterThan(
       name: "greaterThan",
       constraints: [minValue],
       validator: {
-        validate: (value, args): boolean =>
-          greaterThan(value, args?.constraints[0]),
+        validate: (value, args: ValidationArguments): boolean =>
+          greaterThan(value, args.constraints[0]),
         defaultMessage: buildMessage(
           (eachPrefix) =>
             `${eachPrefix}$property must be greater than $constraint1`,
