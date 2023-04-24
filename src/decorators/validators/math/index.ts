@@ -16,5 +16,6 @@
 
 export * from "./greaterThan";
 export * from "./greaterThanOrEqualTo";
+export * from "./isIntString";
 export * from "./lessThan";
 export * from "./lessThanOrEqualTo";
