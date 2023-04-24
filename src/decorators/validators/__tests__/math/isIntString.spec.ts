@@ -20,39 +20,23 @@ import { IsIntString } from "~/src";
 
 class Box {
   @IsIntString()
-  public readonly height!: string | number;
+  public readonly height!: string;
 
-  public constructor(height: string | number) {
+  public constructor(height: string) {
     this.height = height;
   }
 }
 
 describe("decorators/validators/IsIntString", () => {
   describe("when values are valid", () => {
-    const cases: Array<{
-      description: string;
-      height: string | number;
-    }> = [
-      {
-        description: "for number",
-        height: -99,
-      },
-      {
-        description: "for string number",
-        height: "-99",
-      },
-    ];
+    const height = "99";
+    const box = new Box(height);
 
-    it.each(cases)(
-      "does not have validation errors $description",
-      async ({ height }) => {
-        const box = new Box(height);
+    it("does not have validation errors", async () => {
+      const validationErrors = await validate(box);
 
-        const validationErrors = await validate(box);
-
-        expect(validationErrors).toHaveLength(0);
-      },
-    );
+      expect(validationErrors).toHaveLength(0);
+    });
   });
 
   describe("when values are invalid", () => {
@@ -62,7 +46,7 @@ describe("decorators/validators/IsIntString", () => {
     }> = [
       {
         description: "for number",
-        height: 100.1,
+        height: 100,
       },
       {
         description: "for string number",
@@ -77,6 +61,7 @@ describe("decorators/validators/IsIntString", () => {
     it.each(cases)(
       "returns validation errors $description",
       async ({ height }) => {
+        // @ts-expect-error for validation tests
         const box = new Box(height);
 
         const validationErrors = await validate(box);

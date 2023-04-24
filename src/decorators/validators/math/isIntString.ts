@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-import { buildMessage, ValidateBy, ValidationOptions } from "class-validator";
+import {
+  buildMessage,
+  isString,
+  ValidateBy,
+  ValidationOptions,
+} from "class-validator";
 import { Decimal } from "decimal.js";
 
 const isIntString = (value: unknown): boolean => {
   try {
-    return new Decimal(value as number | string).isInt();
+    return isString(value) && new Decimal(value).isInt();
   } catch {
     return false;
   }
