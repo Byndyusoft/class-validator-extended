@@ -32,6 +32,7 @@ yarn add @byndyusoft/class-validator-extended class-validator class-transformer 
 
 - [AtLeastOneDefined](./src/decorators/validators/atLeastOneDefined.ts)
 - [IsNullable](./src/decorators/validators/isNullable.ts)
+- [IsIntString](./src/decorators/validators/math/isIntString.ts)
 - [LessThan](./src/decorators/validators/math/lessThan.ts)
 - [LessThanOrEqualTo](./src/decorators/validators/math/lessThanOrEqualTo.ts)
 - [GreaterThan](./src/decorators/validators/math/greaterThan.ts)
