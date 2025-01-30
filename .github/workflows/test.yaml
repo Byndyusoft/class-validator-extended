@@ -1,4 +1,4 @@
-name: test workflow
+name: test
 
 on:
   - push
@@ -6,28 +6,4 @@ on:
 
 jobs:
   test:
-    name: test
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: ["12", "14", "16"]
-
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: install nodejs
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: install dependencies
-        run: yarn install --production false --frozen-lockfile --ignore-engines
-
-      - name: lint
-        run: yarn run lint
-
-      - name: test
-        run: yarn run test:cov
+    uses: Byndyusoft/node-reusable-workflows/.github/workflows/test.yaml@master
